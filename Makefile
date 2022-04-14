@@ -8,7 +8,9 @@ clean-server-dist:
 
 # INSTALL
 install: clean-server-dist
-	@mkdir -p ./server/dist/htdocs/v1
-	@cp -rfv ./www/source/project/stable/ ./server/dist/htdocs/
-	@cp -rfv ./www/source/project/v1/ ./server/dist/htdocs/v1
+	@mkdir -p ./server/dist/htdocs
 	@bash server/.bash install
+
+# RELEASE
+release-site:
+	@cp -rfv ./server/dist/htdocs/* ./docs

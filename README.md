@@ -5,4 +5,6 @@
 ## How to use...
 
 - **INSTALL & START**
+  - RUN `$ npm install` - install npm dependencies
   - RUN `$ make install` - local docker instance for library
+  - RUN `$ npm run deploy` - deploy project to instance
