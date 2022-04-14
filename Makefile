@@ -8,6 +8,9 @@ clean-server-dist:
 
 # INSTALL
 install: clean-server-dist
-	@cp -rfv ./dashboard/source/* ./server/dist/
-	@cp -rfv ./library/source ./server/dist/library/
+	@mkdir -p ./server/dist/htdocs
 	@bash server/.bash install
+
+# RELEASE
+release-site:
+	@cp -rfv ./server/dist/htdocs/* ./docs
