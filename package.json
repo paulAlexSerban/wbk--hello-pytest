@@ -1,6 +1,6 @@
 {
-  "name": "project-template",
-  "version": "0.3.0",
+  "name": "blank-generic-template",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paulAlexSerban/project-template.git"
+    "url": "git+https://github.com/paulAlexSerban/blank-generic-template.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/paulAlexSerban/project-template/issues"
+    "url": "https://github.com/paulAlexSerban/blank-generic-template/issues"
   },
-  "homepage": "https://github.com/paulAlexSerban/project-template#readme"
+  "homepage": "https://github.com/paulAlexSerban/blank-generic-template#readme"
 }

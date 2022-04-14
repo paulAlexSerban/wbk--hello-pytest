@@ -1,6 +1,6 @@
-# Project Template
+# Blank Generic Template
 
-> version 0.3.0
+> version 0.1.0
 
 ## How to use...
 
