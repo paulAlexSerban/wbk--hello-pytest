@@ -1,0 +1,13 @@
+{
+  "name": "project-template__server",
+  "version": "0.2.0",
+  "description": "Node.js on Docker",
+  "author": "paulAlexSerban <paul.alex.serban@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "project-template",
+  "version": "0.3.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulAlexSerban/project-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulAlexSerban/project-template/issues"
+  },
+  "homepage": "https://github.com/paulAlexSerban/project-template#readme"
+}
