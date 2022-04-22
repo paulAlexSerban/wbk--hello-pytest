@@ -17,7 +17,7 @@ services:
     build:
       context: ../backend/httpd/
       dockerfile: httpd.Dockerfile
-    container_name: apache-web-server
+    container_name: httpd-web-server
     restart: always
     volumes:
       - ../docs:/usr/local/apache2/htdocs/
