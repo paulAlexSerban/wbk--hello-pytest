@@ -7,11 +7,10 @@ import { cleanAssets } from "./tasks/cleanAssets";
 import { loadVideos } from "./tasks/loadVideos";
 
 task("clean", cleanAssets);
+
 task(
   "compile",
   series("clean", parallel(compileIcons, createImageRenditions, compileSvgs, loadVideos))
 );
 
 task("deploy", series("compile", deployAssets));
-
-task("site", series("compile", deployAssets));

@@ -1,5 +1,5 @@
 import del from 'del';
 
-export const cleanAssets = () => {
+export const cleanLibrary = () => {
   return del(["./dist/*"])
 }
