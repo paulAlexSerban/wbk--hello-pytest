@@ -29,7 +29,7 @@ task("minify", series(parallel("minify:styles"), removeTemporaryFiles));
 task("compile", series("clean", "lint", "build", "minify"));
 task("deploy", series("compile", deploy));
 
-task("watch:stable", () => {
+task("watch", () => {
   watch(paths.src.js.jsFiles, series("lint:scripts", "build:scripts:dev"));
   watch(
     [...paths.src.css.scssFiles, ...paths.src.css.scssWatchFiles],

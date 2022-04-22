@@ -8,7 +8,7 @@
     "compile": "gulp compile --require @babel/register --gulpfile build",
     "deploy": "gulp deploy --require @babel/register --gulpfile build",
     "site": "gulp site --require @babel/register --gulpfile build",
-    "watch": "gulp watch:stable --require @babel/register --gulpfile build"
+    "watch": "gulp watch --require @babel/register --gulpfile build"
   },
   "author": "Paul Serban ",
   "license": "MIT",
