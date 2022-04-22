@@ -3,9 +3,15 @@ clean-ds-store:
 	@echo "REMOVING all .DS_Store files"
 	@rm -rfv .DS_Store & rm -rfv */.DS_Store & rm -rfv */*/.DS_Store & rm -rfv */*/*/.DS_Store & rm -rfv */*/*/*/.DS_Store
 
+clean-docs:
+	@rm -rfv docs/*	
+
 ## DEPLOY SCRIPTS
 deploy-assets:
 	npm run deploy --prefix assets
+
+deploy-frontend:
+	npm run deploy --prefix frontend
 
 ## DOCKER INSTANCE SCRIPTS
 build-compose-container:
