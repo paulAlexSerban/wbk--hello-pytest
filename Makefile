@@ -30,3 +30,7 @@ stop-and-remove-all-compose-projects: clean-ds-store
 ## WATCHERS
 start-frontend-watches:
 	npm run watch --prefix frontend
+
+## BUMP
+bump-major:
+	npm version patch --force	--prefix assets && npm version patch --force	--prefix frontend
