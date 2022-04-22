@@ -3,14 +3,11 @@ clean-ds-store:
 	@echo "REMOVING all .DS_Store files"
 	@rm -rfv .DS_Store & rm -rfv */.DS_Store & rm -rfv */*/.DS_Store & rm -rfv */*/*/.DS_Store & rm -rfv */*/*/*/.DS_Store
 
-clean-server-dist:
-	@rm -rfv server/dist/*
+build-compose-container:
+	@docker-compose --env-file .env up --build --detach
 
-# INSTALL
-install: clean-server-dist
-	@mkdir -p ./server/dist/htdocs
-	@bash server/.bash install
+start-compose-container:
+	@docker-compose --env-file .env up --detach
 
-# RELEASE
-release-site:
-	@cp -rfv ./server/dist/htdocs/* ./docs
+stop-all-compose-projects: clean-ds-store
+	@docker-compose down --volumes --rmi all
