@@ -1,0 +1,31 @@
+{
+  "name": "template-nginx-httpd",
+  "version": "2.0.0",
+  "description": "- RUN `$ make install-npm-dependencies` - RUN `$ make deploy-all` - RUN `$ make build-compose-container` - RUN `$ make start-frontend-watchers`",
+  "main": "index.js",
+  "scripts": {
+    "/": "  CLEAN   //////////",
+    "clean:docs": "rm -rfv docs/*",
+    "//": "  INSTALL  //////////",
+    "install:dependencies": "npm install --prefix assets && npm install --prefix frontend",
+    "///": "  BUILD  //////////",
+    "build:all": "npm run clean:docs && npm run build:assets && npm run build:frontend:dev",
+    "build:assets": "npm run build --prefix assets",
+    "build:frontend:dev": "npm run build --prefix frontend",
+    "////": "  WATCH  //////////",
+    "watch:frontend": "npm run watch --prefix frontend",
+    "/////": "  DOCKER //////////",
+    "build:compose": "docker-compose --env-file .env up --build --detach",
+    "stop:compose": "docker-compose down --volumes --rmi all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulAlexSerban/blank-generic-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulAlexSerban/blank-generic-template/issues"
+  },
+  "homepage": "https://github.com/paulAlexSerban/blank-generic-template#readme"
+}
