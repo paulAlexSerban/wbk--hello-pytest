@@ -1,7 +1,4 @@
 # Blank Generic Template
-
-> Version 1.0.0
-
 ## How to use...
 
 - RUN `$ make install-npm-dependencies`
