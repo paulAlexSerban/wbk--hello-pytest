@@ -35,7 +35,7 @@ export const paths = {
     js: {
       jsFiles: [
         `./${SRC_DIR}/javascript/abstracts/*/*.js`,
-        `./${SRC_DIR}/javascript/modules/components/*/*.js`,
+        `./${SRC_DIR}/javascript/modules/components/*/*/*.js`,
         `./${SRC_DIR}/javascript/modules/structure/*/*.js`,
       ],
       jsEntries: [

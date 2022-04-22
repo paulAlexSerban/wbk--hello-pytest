@@ -1,7 +1,5 @@
-/* eslint-disable import/no-unresolved */
 import { task, series, parallel, watch } from "gulp";
 import { paths } from "./config/paths";
-import { PROJECT_PATH } from "./config/constants";
 import { lintHtml } from "./tasks/html/lintHtml";
 import { lintScss } from "./tasks/scss/lintScss";
 import { lintJs } from "./tasks/javascript/lintJs";
@@ -40,8 +38,10 @@ task("watch:stable", () => {
   watch(paths.src.html.htmlFiles, series("lint:markup", "build:markup"));
   watch(
     [
-      `${paths.dist.distDir}/${PROJECT_PATH}/*`,
-      `${paths.dist.distDir}/${PROJECT_PATH}/*/*`,
+      `${paths.dist.distDir}/*`,
+      `${paths.dist.distDir}/*/*`,
+      `${paths.dist.distDir}/*/*/*`,
+      `${paths.dist.distDir}/*/*/*/*`,
     ],
     deploy
   );
