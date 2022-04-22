@@ -1,10 +1,7 @@
 # Blank Generic Template
-
-> version 1.0.0
-
 ## How to use...
 
-- **INSTALL & START**
-  - RUN `$ npm install` - install npm dependencies
-  - RUN `$ make install` - local docker instance for library
-  - RUN `$ npm run deploy` - deploy project to instance
+- RUN `$ make install-npm-dependencies`
+- RUN `$ make deploy-all`
+- RUN `$ make build-compose-container`
+- RUN `$ make start-frontend-watchers`

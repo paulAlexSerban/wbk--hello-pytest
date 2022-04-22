@@ -2,8 +2,8 @@ import { src, dest } from "gulp";
 import plumber from "gulp-plumber";
 import size from 'gulp-size';
 
-const assetsEntries = ["./assets/dist/*/*",];
-const coreDist = "./server/dist/htdocs/assets";
+const assetsEntries = ["./dist/*/*",];
+const coreDist = "../docs/assets";
 
 export const deployAssets = () => {
   return src(assetsEntries)

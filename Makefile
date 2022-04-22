@@ -1,16 +1,36 @@
-# CLEAN
+## CLEAN
 clean-ds-store:
 	@echo "REMOVING all .DS_Store files"
 	@rm -rfv .DS_Store & rm -rfv */.DS_Store & rm -rfv */*/.DS_Store & rm -rfv */*/*/.DS_Store & rm -rfv */*/*/*/.DS_Store
 
-clean-server-dist:
-	@rm -rfv server/dist/*
+clean-docs:
+	@rm -rfv docs/*
 
-# INSTALL
-install: clean-server-dist
-	@mkdir -p ./server/dist/htdocs
-	@bash server/.bash install
+## INSTALL
+install-npm-dependencies:
+	@npm install --prefix assets && npm install --prefix frontend
 
-# RELEASE
-release-site:
-	@cp -rfv ./server/dist/htdocs/* ./docs
+## DEPLOY SCRIPTS
+deploy-assets:
+	@npm run deploy --prefix assets
+
+deploy-frontend:
+	@npm run deploy --prefix frontend
+
+deploy-all: clean-docs
+	@make deploy-assets && make deploy-frontend
+
+## DOCKER INSTANCE SCRIPTS
+build-compose-container:
+	@docker-compose --env-file .env up --build --detach
+
+stop-and-remove-all-compose-projects: clean-ds-store
+	@docker-compose down --volumes --rmi all
+
+## WATCHERS
+start-frontend-watches:
+	npm run watch --prefix frontend
+
+## BUMP
+bump-major:
+	npm version patch --force	--prefix assets && npm version patch --force	--prefix frontend
