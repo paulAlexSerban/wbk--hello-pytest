@@ -2,8 +2,8 @@ import { src, dest } from "gulp";
 import plumber from "gulp-plumber";
 import size from 'gulp-size';
 
-const videoEntries = "./assets/source/videos/*";
-const videoDistDir = "./assets/dist/videos";
+const videoEntries = "./source/videos/*";
+const videoDistDir = "./dist/videos";
 
 export const loadVideos = () => {
   return src(videoEntries)

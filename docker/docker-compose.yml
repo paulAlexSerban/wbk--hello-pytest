@@ -20,4 +20,4 @@ services:
     container_name: apache-web-server
     restart: always
     volumes:
-      - ../frontend/dist:/usr/local/apache2/htdocs/
+      - ../docs:/usr/local/apache2/htdocs/
