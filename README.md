@@ -1,4 +1,4 @@
-# Blank Generic Template
+# Nginx & Httpd Template
 ## How to use...
 
 - RUN `$ make install-npm-dependencies`
