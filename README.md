@@ -1,12 +1,5 @@
 # Nginx & Httpd Template
-## How to use...
-
-- RUN `$ make install-npm-dependencies`
-- RUN `$ make deploy-all`
-- RUN `$ make build-compose-container`
-- RUN `$ make start-frontend-watchers`
-
 ## How to bump
-- PATCH - `npm version patch --force`
-- MINOR - `npm version minor --force`
-- MAJOR - `npm version major --force`
+- PATCH - `npm version patch` - `2.0.${patch}`
+- MINOR - `npm version minor` - `2.${minor}.0`
+- MAJOR - `npm version major` - `${major}.0.0`
