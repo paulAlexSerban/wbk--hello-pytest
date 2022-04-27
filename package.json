@@ -1,6 +1,6 @@
 {
   "name": "template-nginx-httpd",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "- RUN `$ make install-npm-dependencies` - RUN `$ make deploy-all` - RUN `$ make build-compose-container` - RUN `$ make start-frontend-watchers`",
   "main": "index.js",
   "scripts": {
