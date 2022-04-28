@@ -8,4 +8,4 @@
 <img src="./wiki/architecture/architecture.png" width="100%"></img>
 
 ## Branching Strategy
-<img src="./wiki/bracnhing-strategy/branching-strategy.png" width="100%"></img>
+<img src="./wiki/branching-strategy/branching-strategy.png" width="100%"></img>
