@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "gulp clean --require @babel/register --gulpfile build",
-    "compile": "gulp compile --require @babel/register --gulpfile build",
-    "deploy": "gulp deploy --require @babel/register --gulpfile build",
-    "site": "gulp site --require @babel/register --gulpfile build",
+    "build": "gulp build --require @babel/register --gulpfile build",
     "watch": "gulp watch --require @babel/register --gulpfile build"
   },
   "author": "Paul Serban ",
@@ -40,11 +38,9 @@
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
-    "gulp-responsive": "^3.0.1",
     "gulp-sass": "^5.1.0",
     "gulp-size": "^4.0.1",
     "gulp-strip-css-comments": "^2.0.0",
-    "gulp-svgmin": "^4.1.0",
     "postcss": "^8.4.8",
     "postcss-critical-split": "^2.5.3",
     "stylelint": "^14.5.3",
