@@ -5,7 +5,7 @@
 - MAJOR - `npm version major` - `${major}.0.0`
 
 ## Architecture Diagram
-<img src="./wiki/architecture/architecture.png" width="60%"></img>
+<img src="./wiki/architecture/architecture.png" width="100%"></img>
 
 ## Branching Strategy
-<img src="./wiki/bracnhing-strategy/branching-strategy.png" width="60%"></img>
+<img src="./wiki/bracnhing-strategy/branching-strategy.png" width="100%"></img>
