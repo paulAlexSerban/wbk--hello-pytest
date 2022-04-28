@@ -9,8 +9,6 @@ import { loadVideos } from "./tasks/loadVideos";
 task("clean", cleanAssets);
 
 task(
-  "compile",
+  "build",
   series("clean", parallel(compileIcons, createImageRenditions, compileSvgs, loadVideos))
 );
-
-task("deploy", series("compile", deployAssets));

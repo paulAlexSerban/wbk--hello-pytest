@@ -4,7 +4,7 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "compile": "gulp compile --require @babel/register --gulpfile build",
+    "build": "gulp build --require @babel/register --gulpfile build",
     "deploy": "gulp deploy --remove --require @babel/register --gulpfile build"
   },
   "author": "Paul Serban",
