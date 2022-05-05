@@ -15,7 +15,7 @@ module.exports = {
       "@semantic-release/github",
       { assets: [{ path: "build.zip", label: "Build" }] },
     ],
-    ["@semantic-release/changelog", { changelogFile: "CHANGELOG.md" }],
+    ["@semantic-release/changelog", { changelogFile: "wiki/CHANGELOG.md" }],
     [
       "@semantic-release/git",
       {
