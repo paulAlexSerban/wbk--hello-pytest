@@ -1,6 +1,6 @@
 module.exports = {
   branches: "main",
-  repositoryUrl: "https://github.com/paulAlexSerban/github-actions",
+  repositoryUrl: "https://github.com/paulAlexSerban/tpl---reverse-proxy-web-server",
   plugins: [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
