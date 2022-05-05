@@ -7,24 +7,15 @@ module.exports = {
     '@semantic-release/npm',
     [
       "@semantic-release/github",
-      {
-        assets: [
-          {path: "build.zip", label: "Build"}
-        ]
-      }
+      { assets: [ {path: "build.zip", label: "Build"} ] }
     ],
     [
       '@semantic-release/changelog',
-      {
-        changelogFile: 'CHANGELOG.md'
-      }
+      { changelogFile: 'CHANGELOG.md' }
     ],
-    [
-      '@semantic-release/git',
-      {
-        assets: ['CHANGELOG.md', 'docs/**'],
-        message: 'chore(release): set `package.json` to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
-      }
+    [ '@semantic-release/git',
+      { assets: ['CHANGELOG.md', 'docs/**'],
+        message: 'chore(release): set `package.json` to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}' }
     ]
   ],
 };
