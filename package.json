@@ -27,7 +27,7 @@
     "//////": "  WATCH  //////////",
     "watch:frontend": "NODE_ENV=development npm run watch --prefix frontend/landing",
     "///////": "  DOCKER //////////",
-    "build:compose": "docker-compose --env-file .env up --build --detach",
+    "build:compose": "bash backend/proxy/openssl.bash && docker-compose --env-file .env up --build --detach",
     "stop:compose": "docker-compose down --volumes --rmi all"
   },
   "repository": {
