@@ -3,12 +3,12 @@ import minifyCSS from "gulp-clean-css";
 import { paths } from "../../config/paths";
 import plumber from "gulp-plumber";
 import rename from "gulp-rename";
-// import debug from "gulp-debug";
+import debug from "gulp-debug";
 
 export const cssCleanMinify = () => {
   return src(paths.src.css.rawCssEntries, { since: lastRun(cssCleanMinify) })
     .pipe(plumber())
-    // .pipe(debug({ title: "cssCleanMinify :" }))
+    .pipe(debug({ title: "cssCleanMinify :" }))
     .pipe(
       minifyCSS({ 
         debug: true

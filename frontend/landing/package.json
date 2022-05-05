@@ -1,12 +1,13 @@
 {
-  "name": "template-nginx-httpd-frontend",
-  "version": "2.0.0",
+  "name": "landing",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "clean": "gulp clean --require @babel/register --gulpfile build",
     "build": "gulp build --require @babel/register --gulpfile build",
-    "watch": "gulp watch --require @babel/register --gulpfile build"
+    "watch": "gulp watch --require @babel/register --gulpfile build",
+    "lint": "gulp lint --require @babel/register --gulpfile build"
   },
   "author": "Paul Serban ",
   "license": "MIT",
@@ -24,6 +25,7 @@
     "core-js": "^3.21.1",
     "dart-sass": "^1.25.0",
     "del": "^6.0.0",
+    "eslint": "^8.14.0",
     "eslint-plugin-import": "^2.25.4",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
