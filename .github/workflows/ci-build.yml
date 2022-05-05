@@ -2,6 +2,8 @@ name: Build
 on:
   pull_request:
     branches: [develop, release, main]
+  push:
+    branches: [develop, release, main]
 
 jobs:
   build:
