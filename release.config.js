@@ -7,9 +7,6 @@ module.exports = {
     ["@semantic-release/npm", {
       npmPublish: false,
     }],
-    ["@semantic-release/exec", {
-      "prepareCmd": "npm version ${nextRelease.version} --force",
-    }],
     [
       "@semantic-release/github",
       { assets: [ {path: "build.zip", label: "Build"} ] }
@@ -19,7 +16,7 @@ module.exports = {
       { changelogFile: 'CHANGELOG.md' }
     ],
     [ '@semantic-release/git',
-      { assets: ['CHANGELOG.md', 'docs/**'],
+      { assets: ['CHANGELOG.md', 'docs/**', 'package.json'],
         message: 'chore(release): set `package.json` to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}' }
     ]
   ],
