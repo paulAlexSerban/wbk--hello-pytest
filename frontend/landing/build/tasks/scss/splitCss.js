@@ -1,6 +1,6 @@
 import { src, dest, lastRun } from "gulp";
 import { paths } from "../../config/paths";
-// import debug from "gulp-debug";
+import debug from "gulp-debug";
 import plumber from "gulp-plumber";
 import postcss from "gulp-postcss";
 import criticalSplit from "postcss-critical-split";
@@ -26,7 +26,7 @@ export const cssCriticalSplit = () => {
       })
     )
     .pipe(stripComments())
-    // .pipe(debug({ title: "cssCriticalSplit : " }))
+    .pipe(debug({ title: "cssCriticalSplit : " }))
     .pipe(dest(paths.dist.distDir));
 };
 
@@ -51,6 +51,6 @@ export const cssAsyncSplit = () => {
       })
     )
     .pipe(stripComments())
-    // .pipe(debug({ title: "cssAsynclSplit : " }))
+    .pipe(debug({ title: "cssAsynclSplit : " }))
     .pipe(dest(paths.dist.distDir));
 };
