@@ -7,6 +7,9 @@ module.exports = {
     ["@semantic-release/npm", {
       npmPublish: false,
     }],
+    ["@semantic-release/exec", {
+      "prepareCmd": "npm version ${nextRelease.version} --force",
+    }],
     [
       "@semantic-release/github",
       { assets: [ {path: "build.zip", label: "Build"} ] }
