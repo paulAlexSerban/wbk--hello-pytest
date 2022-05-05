@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/paulAlexSerban/tpl---reverse-proxy-web-server/compare/v3.0.1...v3.0.2) (2022-05-05)
+
+
+### Bug Fixes
+
+* **ci:** updated release commit message ([02586fc](https://github.com/paulAlexSerban/tpl---reverse-proxy-web-server/commit/02586fcac6c504c17d7215b8cd7ebe072a72f180))
+
 ## [3.0.1](https://github.com/paulAlexSerban/tpl---reverse-proxy-web-server/compare/v3.0.0...v3.0.1) (2022-05-05)
 
 
