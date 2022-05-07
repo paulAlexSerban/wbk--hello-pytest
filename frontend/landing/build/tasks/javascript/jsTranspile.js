@@ -10,20 +10,18 @@ import path from "path";
 import debug from 'gulp-debug';
 
 export const jsTranspile = () => {
-  return src(paths.src.js.jsEntries, { since: lastRun(jsTranspile) })
+  return src(paths.src.js.jsEntries)
     .pipe(debug({title: 'jsTranspile :'}))
     .pipe(plumber())
     .pipe(through(function(file) {
-      const relative = path.relative('.', file.path);
-      file.named = relative;
+      const relative = path.relative(".", file.path).split(".");
+      relative.pop();
+      file.named = relative.join(".");
       this.queue(file);
     }))
     .pipe(gulpWebpack( webpackConfig, webpack))
     .pipe(rename((file) => {
       file.dirname = `javascript`;
-      const filename = file.basename.split('.');
-      filename.pop();
-      file.basename = filename.join('.');
     }))
     .pipe(dest(`${paths.dist.distDir}/public`));
 };
