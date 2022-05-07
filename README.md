@@ -1,5 +1,7 @@
 # Reverse-proxy Web-server
+
 ## Tech-stack
+
 [![NodeJS](https://img.shields.io/badge/NodeJS-14.18.1-green)](https://nodejs.org/docs/latest-v14.x/api/)
 [![Docker](https://img.shields.io/badge/Docker-20-blue)](https://docs.docker.com/release-notes/)
 [![Nginx](https://img.shields.io/badge/Nginx-1.21.6-green)](https://www.nginx.com/)
@@ -9,11 +11,13 @@
 
 ## How to use
 
-- RUN `npm run install:dependencies:dev` - to install NPM dependencies
-- RUN `npm run build:all:dev` - to build projects assets and FE
-- RUN `npm run watch:frontend` - to start watchers for FE developemnt
-- RUN `npm run build:compose` - to start docker-compose instance
-- RUN `npm run stop:compose` - to stop docker-compose instances
+- RUN - `npm run install:dependencies:dev` - to install NPM dependencies
+- RUN - `npm run build:all:dev` - to build projects ./assets and ./frontend
+- RUN - `npm run deploy` - deploy ./dist to ./docs
+- RUN - `npm run watch:frontend` - to start watchers for ./frontend development
+- RUN - `npm run build:compose` - to start docker-compose instance
+- RUN - `npm run stop:compose` - to stop docker-compose instances
+
 
 ## Architecture Diagram
 

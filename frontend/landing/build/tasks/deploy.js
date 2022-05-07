@@ -8,6 +8,7 @@ export const deploy = () => {
     `${paths.dist.distDir}/*.html`,
     `${paths.dist.distDir}/*/*`,
     `${paths.dist.distDir}/*/*/*`,
+    `${paths.dist.distDir}/*/*/*/*`,
   ])
     .pipe(plumber())
     .pipe(
