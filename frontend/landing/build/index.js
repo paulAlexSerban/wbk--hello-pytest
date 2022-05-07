@@ -9,6 +9,7 @@ import { cssCleanMinify } from "./tasks/scss/cssCleanMinify";
 import { jsTranspile } from "./tasks/javascript/jsTranspile";
 import { cleanLibrary } from "./tasks/cleanLibrary";
 import { removeTemporaryFiles } from "./tasks/removeTemporaryFiles";
+import { deploy } from "./tasks/deploy";
 
 task("clean", cleanLibrary);
 
@@ -19,8 +20,15 @@ task("lint", parallel("lint:markup", "lint:styles", "lint:scripts"));
 
 task("build:markup", series(lintHtml, buildHtml));
 task("build:styles", series(lintScss, cssTranspile, cssCleanMinify));
-task("build:scripts", series(lintJs ,jsTranspile));
-task("build", series("clean", parallel("build:markup", "build:styles", "build:scripts"), removeTemporaryFiles));
+task("build:scripts", series(lintJs, jsTranspile));
+task(
+  "build",
+  series(
+    "clean",
+    parallel("build:markup", "build:styles", "build:scripts"),
+    removeTemporaryFiles
+  )
+);
 
 task("watch", () => {
   watch(paths.src.js.jsFiles, series("lint:scripts", "build:scripts"));
@@ -29,4 +37,13 @@ task("watch", () => {
     series("lint:styles", "build:styles", cssCleanMinify)
   );
   watch(paths.src.html.htmlFiles, series("lint:markup", "build:markup"));
+  watch(
+    [
+      `${paths.dist.distDir}/*.html`,
+      `${paths.dist.distDir}/*/*`,
+      `${paths.dist.distDir}/*/*/*`,
+      `${paths.dist.distDir}/*/*/*/*`,
+    ],
+    deploy
+  );
 });

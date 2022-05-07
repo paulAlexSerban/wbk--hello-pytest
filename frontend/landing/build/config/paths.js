@@ -45,6 +45,6 @@ export const paths = {
   },
   dist: {
     distDir: `${DIST_DIR}`,
-    coreDist: `../docs`
+    coreDist: `../../docs`
   },
 };
