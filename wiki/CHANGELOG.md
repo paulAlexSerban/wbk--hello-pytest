@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/paulAlexSerban/tpl---reverse-proxy-web-server/compare/v3.1.0...v3.2.0) (2022-05-07)
+
+
+### Features
+
+* **watchers:** implement watchers to depoy ([108883a](https://github.com/paulAlexSerban/tpl---reverse-proxy-web-server/commit/108883a445f05d6262a1364af70b2daa4daac946))
+
 # [3.1.0](https://github.com/paulAlexSerban/tpl---reverse-proxy-web-server/compare/v3.0.4...v3.1.0) (2022-05-05)
 
 
