@@ -1,4 +1,4 @@
-# Reverse-proxy Web-server
+# PBAnF Template - Nginx Reverse-proxy & Httpd Web-server
 
 ## Tech-stack
 
@@ -17,12 +17,3 @@
 - RUN - `npm run watch:frontend` - to start watchers for ./frontend development
 - RUN - `npm run build:compose` - to start docker-compose instance
 - RUN - `npm run stop:compose` - to stop docker-compose instances
-
-
-## Architecture Diagram
-
-<img src="./wiki/architecture/architecture.png" width="50%"></img>
-
-## Branching Strategy
-
-<img src="./wiki/branching-strategy/branching-strategy.png" width="50%"></img>

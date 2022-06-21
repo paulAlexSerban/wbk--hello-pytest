@@ -1,5 +1,5 @@
 {
-  "name": "reverse-proxy-web-server",
+  "name": "pbanf-tpl--nginx-proxy--httpd-server",
   "version": "3.2.0",
   "description": "",
   "main": "index.js",
@@ -32,14 +32,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paulAlexSerban/tpl---reverse-proxy-web-server.git"
+    "url": "git+https://github.com/paulAlexSerban/pbanf-tpl--nginx-proxy--httpd-server.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/paulAlexSerban/tpl---reverse-proxy-web-server/issues"
+    "url": "https://github.com/paulAlexSerban/pbanf-tpl--nginx-proxy--httpd-server/issues"
   },
-  "homepage": "https://github.com/paulAlexSerban/tpl---reverse-proxy-web-server#readme",
+  "homepage": "https://github.com/paulAlexSerban/pbanf-tpl--nginx-proxy--httpd-server#readme",
   "devDependencies": {
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
