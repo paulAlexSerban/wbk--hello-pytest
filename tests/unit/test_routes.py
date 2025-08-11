@@ -3,10 +3,7 @@ from src.app import create_app
 
 
 class TestRoutes:
-    @pytest.fixture
-    def client(self):
-        app = create_app("testing")
-        return app.test_client()
+    # No fixture needed - client comes from conftest.py
 
     def test_health_endpoint(self, client):
         response = client.get("/health")

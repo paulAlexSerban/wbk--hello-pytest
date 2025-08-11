@@ -3,6 +3,7 @@ import pytest
 from src.app import create_app
 
 
+# conftest.py fixtures are automatically available to all test files
 @pytest.fixture(scope="session")
 def app():
     """Create application for the tests."""

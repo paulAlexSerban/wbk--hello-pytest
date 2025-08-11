@@ -1,12 +1,5 @@
-import pytest
-from src.app import create_app
-
-
 class TestSecurity:
-    @pytest.fixture
-    def client(self):
-        app = create_app("testing")
-        return app.test_client()
+    # No fixtures needed - app and client come from conftest.py
 
     def test_json_content_type_required(self, client):
         # Test that endpoints return proper content types

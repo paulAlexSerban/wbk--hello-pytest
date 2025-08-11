@@ -77,3 +77,38 @@ class TestMathUtils:
     def test_divide_by_zero_pytest_raises_xfail(self):
         """Test division by zero using pytest.raises."""
         assert MathUtils.divide(10, 0)
+
+    @pytest.mark.parametrize(
+        "a, b, expected",
+        [
+            (1, 2, 3),
+            (10, 20, 30),
+            (-1, 1, 0),
+            (0, 0, 0),
+            (100, 200, 300),
+        ],
+    )
+    def test_add_with_parametrize(self, a, b, expected):
+        """Test add method with parameterized inputs."""
+        assert MathUtils.add(a, b) == expected
+
+    @pytest.mark.parametrize(
+        "a, b, expected",
+        [
+            (1, 2, 3),
+            (10, 20, 30),
+            (-1, 1, 0),
+            (0, 0, 0),
+            (100, 200, 300),
+        ],
+        ids=[
+            "one_two",
+            "ten_twenty",
+            "minus_one_plus_one",
+            "zero_zero",
+            "hundred_two_hundred",
+        ]
+    )
+    def test_add_with_parametrize_ids(self, a, b, expected):
+        """Test add method with parameterized inputs and custom IDs."""
+        assert MathUtils.add(a, b) == expected

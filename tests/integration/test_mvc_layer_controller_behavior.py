@@ -3,7 +3,7 @@
 from unittest.mock import patch
 
 import pytest
-from flask import Flask, json
+from flask import json
 
 from src.controllers.item_controller import ItemController
 from src.models.item_model import ItemModel
@@ -12,22 +12,11 @@ from src.models.item_model import ItemModel
 class TestItemControllerIntegration:
     """Integration tests for ItemController MVC layer behavior."""
 
-    @pytest.fixture
-    def app(self):
-        """Create a test Flask app."""
-        app = Flask(__name__)
-        app.config["TESTING"] = True
-        return app
-
-    @pytest.fixture
-    def app_context(self, app):
-        """Create Flask application context."""
-        with app.app_context():
-            yield app
+    # No fixtures needed - app and client come from conftest.py
 
     @pytest.mark.sanity
     @pytest.mark.controller
-    def test_get_items_returns_json_response(self, app_context):
+    def test_get_items_returns_json_response(self, app):
         """Test that get_items returns a proper JSON response."""
         with patch.object(ItemModel, "get_all_items") as mock_get_all:
             mock_get_all.return_value = [
@@ -41,7 +30,7 @@ class TestItemControllerIntegration:
             assert response.content_type == "application/json"
 
     @pytest.mark.controller
-    def test_get_items_calls_model_method(self, app_context):
+    def test_get_items_calls_model_method(self, app):
         """Test that get_items properly calls the model method."""
         with patch.object(ItemModel, "get_all_items") as mock_get_all:
             mock_get_all.return_value = []
@@ -52,7 +41,7 @@ class TestItemControllerIntegration:
 
     @pytest.mark.sanity
     @pytest.mark.controller
-    def test_get_items_returns_expected_data_structure(self, app_context):
+    def test_get_items_returns_expected_data_structure(self, app):
         """Test that get_items returns the expected data structure."""
         test_items = [{"id": 1, "name": "item1"}, {"id": 2, "name": "item2"}]
 
@@ -67,7 +56,7 @@ class TestItemControllerIntegration:
             assert response_data == test_items
 
     @pytest.mark.controller
-    def test_get_items_handles_empty_list(self, app_context):
+    def test_get_items_handles_empty_list(self, app):
         """Test that get_items properly handles empty item list."""
         with patch.object(ItemModel, "get_all_items") as mock_get_all:
             mock_get_all.return_value = []
@@ -80,7 +69,7 @@ class TestItemControllerIntegration:
             assert len(response_data) == 0
 
     @pytest.mark.controller
-    def test_get_items_handles_single_item(self, app_context):
+    def test_get_items_handles_single_item(self, app):
         """Test that get_items properly handles single item."""
         test_item = [{"id": 1, "name": "single_item"}]
 
@@ -95,7 +84,7 @@ class TestItemControllerIntegration:
             assert response_data[0]["name"] == "single_item"
 
     @pytest.mark.controller
-    def test_get_items_handles_large_dataset(self, app_context):
+    def test_get_items_handles_large_dataset(self, app):
         """Test that get_items properly handles large dataset."""
         large_dataset = [{"id": i, "name": f"item_{i}"} for i in range(1000)]
 
@@ -111,7 +100,7 @@ class TestItemControllerIntegration:
             assert response_data[999]["name"] == "item_999"
 
     @pytest.mark.controller
-    def test_get_items_preserves_data_integrity(self, app_context):
+    def test_get_items_preserves_data_integrity(self, app):
         """Test that get_items preserves data integrity from model to response."""
         test_items = [
             {"id": 1, "name": "item1", "description": "Test item 1", "price": 10.99},
@@ -136,7 +125,7 @@ class TestItemControllerIntegration:
             assert response_data[1]["price"] == 20.50
 
     @pytest.mark.controller
-    def test_get_items_model_exception_propagation(self, app_context):
+    def test_get_items_model_exception_propagation(self, app):
         """Test that controller properly handles model exceptions."""
         with patch.object(ItemModel, "get_all_items") as mock_get_all:
             mock_get_all.side_effect = Exception("Database connection failed")
@@ -145,7 +134,7 @@ class TestItemControllerIntegration:
                 ItemController.get_items()
 
     @pytest.mark.controller
-    def test_controller_model_interaction_flow(self, app_context):
+    def test_controller_model_interaction_flow(self, app):
         """Test the complete MVC flow from controller to model and back."""
         expected_items = [{"id": 1, "name": "integration_test_item"}]
 

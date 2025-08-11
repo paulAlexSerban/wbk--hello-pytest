@@ -1,15 +1,9 @@
-import pytest
 import time
 from concurrent.futures import ThreadPoolExecutor
-from src.app import create_app
 
 
 class TestPerformance:
-    @pytest.fixture
-    def client(self):
-        app = create_app("testing")
-        return app.test_client()
-
+    # No fixtures needed - app and client come from conftest.py
     def test_health_endpoint_response_time(self, client):
         start_time = time.time()
         response = client.get("/health")
