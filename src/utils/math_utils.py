@@ -20,5 +20,5 @@ class MathUtils:
     def divide(a: int, b: int) -> float:
         """Return the quotient of two integers."""
         if b == 0:
-            raise ValueError("Cannot divide by zero.")
+            raise ZeroDivisionError("Cannot divide by zero.")
         return a / b
