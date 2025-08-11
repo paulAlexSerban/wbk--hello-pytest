@@ -22,3 +22,15 @@ def mock_item_controller():
     """Mock ItemController for testing."""
     with patch("src.controllers.item_controller.ItemController") as mock:
         yield mock
+
+
+@pytest.fixture(scope="function")
+def teardown_example():
+    """Example fixture for teardown."""
+    yield print("on yield - teardown_example fixture")
+    print("after yield - teardown_example fixture completed")
+
+def pytest_configure(config):
+    """Configure pytest settings."""
+    config.test_value = "test_value via config"
+    print("pytest_configure called - test_value set to 'test_value'")
