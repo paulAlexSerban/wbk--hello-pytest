@@ -13,7 +13,15 @@ include = ["src*", "tests*"]
 
 [tool.pytest.ini_options]
 markers = [
+
     "sanity: marks tests as sanity tests (basic functionality checks)",
+    "regression: marks tests that check for regressions",
+    "smoke: marks tests that check basic functionality",
+
+    "controller: marks tests related to the controller layer",
+    "model: marks tests related to the model layer",
+    "view: marks tests related to the view layer",
+    "api: marks tests related to the API endpoints",
     "string: marks tests related to string utilities",
     "math: marks tests related to math utilities",
 ]

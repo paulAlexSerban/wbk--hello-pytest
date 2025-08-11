@@ -35,3 +35,28 @@ test_not_sanity:
 	@echo "Running non-sanity tests..."
 	@pytest -m "not sanity" --cov=src --cov-report=html --cov-report=term-missing --verbose
 	@echo "Non-sanity tests completed."
+
+test_unit:
+	@echo "Running unit tests..."
+	@pytest tests/unit/ --cov=src --cov-report=html --cov-report=term-missing --verbose
+	@echo "Unit tests completed."
+
+test_integration:
+	@echo "Running integration tests..."
+	@pytest tests/integration/ --cov=src --cov-report=html --cov-report=term-missing --verbose
+	@echo "Integration tests completed."
+
+test_e2e:
+	@echo "Running end-to-end tests..."
+	@pytest tests/e2e/ --cov=src --cov-report=html --cov-report=term-missing --verbose
+	@echo "End-to-end tests completed."
+
+test_performance:
+	@echo "Running performance tests..."
+	@pytest tests/performance/ --cov=src --cov-report=html --cov-report=term-missing --verbose
+	@echo "Performance tests completed."
+
+test_security:
+	@echo "Running security tests..."
+	@pytest tests/security/ --cov=src --cov-report=html --cov-report=term-missing --verbose
+	@echo "Security tests completed."
