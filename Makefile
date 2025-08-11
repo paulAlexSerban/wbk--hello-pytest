@@ -17,7 +17,21 @@ install_deps:
 	@pip install -r requirements.txt -e .
 	@echo "Dependencies installed."
 
+run:
+	@echo "Running application..."
+	@python src/app.py
+
 test:
 	@echo "Running tests..."
 	@pytest --cov=src --cov-report=html --cov-report=term-missing --verbose
 	@echo "Tests completed."
+
+test_sanity:
+	@echo "Running sanity tests..."
+	@pytest -m sanity --cov=src --cov-report=html --cov-report=term-missing --verbose
+	@echo "Sanity tests completed."
+
+test_not_sanity:
+	@echo "Running non-sanity tests..."
+	@pytest -m "not sanity" --cov=src --cov-report=html --cov-report=term-missing --verbose
+	@echo "Non-sanity tests completed."

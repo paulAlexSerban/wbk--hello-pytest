@@ -7,34 +7,55 @@ from src.utils.math_utils import MathUtils
 class TestMathUtils:
     """Unit tests for MathUtils."""
 
-    def test_add(self):
-        """Test the add method."""
+    @pytest.mark.sanity
+    @pytest.mark.math
+    def test_add_positive_numbers(self):
+        """Test adding positive numbers."""
         assert MathUtils.add(2, 3) == 5
+
+    @pytest.mark.math
+    def test_add_negative_and_positive(self):
+        """Test adding negative and positive numbers."""
         assert MathUtils.add(-1, 1) == 0
 
-    def test_subtract(self):
-        """Test the subtract method."""
+    @pytest.mark.sanity
+    @pytest.mark.math
+    def test_subtract_positive_numbers(self):
+        """Test subtracting positive numbers."""
         assert MathUtils.subtract(5, 3) == 2
+
+    @pytest.mark.math
+    def test_subtract_same_numbers(self):
+        """Test subtracting same numbers."""
         assert MathUtils.subtract(0, 0) == 0
 
-    def test_multiply(self):
-        """Test the multiply method."""
+    @pytest.mark.sanity
+    @pytest.mark.math
+    def test_multiply_positive_numbers(self):
+        """Test multiplying positive numbers."""
         assert MathUtils.multiply(2, 3) == 6
+
+    @pytest.mark.math
+    def test_multiply_negative_and_positive(self):
+        """Test multiplying negative and positive numbers."""
         assert MathUtils.multiply(-1, 1) == -1
 
-    def test_divide(self):
-        """Test the divide method."""
+    @pytest.mark.sanity
+    @pytest.mark.math
+    def test_divide_positive_numbers(self):
+        """Test dividing positive numbers."""
         assert MathUtils.divide(6, 3) == 2
 
+    @pytest.mark.math
     def test_divide_fails(self):
         """Test the divide method for failure cases."""
         with pytest.raises(Exception):
             assert MathUtils.divide(9, 5) == 1.5, "failed test intentionally"
 
-    def test_divide_zero(self):
-        """Test the divide method with zero."""
-
-        # Ensure that the exception is raised
+    @pytest.mark.sanity
+    @pytest.mark.math
+    def test_divide_by_zero_try_except(self):
+        """Test division by zero using try-except."""
         try:
             MathUtils.divide(1, 0)
         except ZeroDivisionError:
@@ -42,6 +63,17 @@ class TestMathUtils:
         else:
             assert False
 
-        # Alternatively, using pytest.raises for cleaner syntax
+    @pytest.mark.math
+    def test_divide_by_zero_pytest_raises(self):
+        """Test division by zero using pytest.raises."""
         with pytest.raises(ZeroDivisionError, match="Cannot divide by zero."):
             MathUtils.divide(10, 0)
+
+    @pytest.mark.math
+    @pytest.mark.xfail(
+        raises=ZeroDivisionError,
+        reason="This test is expected to fail due to division by zero.",
+    )
+    def test_divide_by_zero_pytest_raises_xfail(self):
+        """Test division by zero using pytest.raises."""
+        assert MathUtils.divide(10, 0)
