@@ -1,0 +1,12 @@
+[project]
+name = "hello-pytest"
+version = "0.1.0"
+description = "A simple Flask app with pytest"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "tests*"]
