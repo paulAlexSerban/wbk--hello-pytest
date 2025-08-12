@@ -107,8 +107,16 @@ class TestMathUtils:
             "minus_one_plus_one",
             "zero_zero",
             "hundred_two_hundred",
-        ]
+        ],
     )
     def test_add_with_parametrize_ids(self, a, b, expected):
         """Test add method with parameterized inputs and custom IDs."""
         assert MathUtils.add(a, b) == expected
+
+    def test_sum_all(self, numbers_generator):
+        """Test sum_all with a valid list."""
+        numbers = numbers_generator(500)
+        sut = MathUtils.sum_all(numbers)
+        expected_sum = sum(numbers)
+        print(f"SUT sum of is {sut}, expected {expected_sum}")
+        assert sut == expected_sum

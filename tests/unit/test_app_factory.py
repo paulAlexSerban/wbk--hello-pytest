@@ -13,11 +13,12 @@ class TestAppFactory:
         print(request.config.test_value)  # Example usage of the pytest fixture
 
 
-    def test_create_app_testing_config(self, app):
+    def test_create_app_testing_config(self, app, print_request_values):
         """Test that the app is created with testing config."""
         app = create_app("testing")
         assert app.config["TESTING"] is True
         assert app.config["DEBUG"] is False
+
 
     def test_create_app_default_config(self, app):
         """Test that the app is created with default config."""
