@@ -25,3 +25,5 @@ markers = [
     "string: marks tests related to string utilities",
     "math: marks tests related to math utilities",
 ]
+# add default pytest options
+addopts = "-v -s"

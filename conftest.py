@@ -1,3 +1,4 @@
+import os
 from unittest.mock import patch
 from random import randint
 import pytest
@@ -17,6 +18,11 @@ def client(app):
     """Create a test client."""
     return app.test_client()
 
+@pytest.fixture(scope="class", autouse=True)
+def check_fixture_scope():
+    """Check the fixture scope."""
+    yield print("on yield - check_fixture_scope fixture")
+    print("\nCheck fixture scope completed.")
 
 @pytest.fixture
 def mock_item_controller():
@@ -30,12 +36,6 @@ def teardown_example():
     """Example fixture for teardown."""
     yield print("on yield - teardown_example fixture")
     print("after yield - teardown_example fixture completed")
-
-
-def pytest_configure(config):
-    """Configure pytest settings."""
-    config.test_value = "test_value via config"
-    print("pytest_configure called - test_value set to 'test_value'")
 
 
 @pytest.fixture(scope="function")
@@ -61,3 +61,43 @@ def numbers_generator():
 
     yield generate_numbers
     print("\nGenerated numbers:", generated_numbers)
+
+
+def pytest_addoption(parser):
+    """Add custom command line options."""
+    parser.addoption(
+        "--envconfig",
+        default="QA",
+        action="store",
+        help="Environment configuration file to use (QA or PROD).",
+        dest="env_configuration",
+        choices=["QA", "PROD"],
+        required=True,
+    )
+    parser.addoption(
+        "--custom_config_option",
+        action="store",
+        default="default_config_value",
+    )
+
+
+def pytest_configure(config):
+    """Configure pytest settings."""
+    config.os_lang = os.environ.get("LANG")
+    config.custom_config_option = config.getoption("custom_config_option")
+
+
+QA_CONFIG = os.path.join(os.path.dirname(__file__), "qa.prop")
+PROD_CONFIG = os.path.join(os.path.dirname(__file__), "prod.prop")
+
+
+@pytest.fixture()
+def cmd_opt(pytestconfig):
+    """Get command line option value."""
+    print("In CmdOpt fixture function")
+    opt = pytestconfig.getoption("env_configuration")
+    if opt == "PROD":
+        file = open(file=PROD_CONFIG, mode="r", encoding="utf-8")
+    else:
+        file = open(file=QA_CONFIG, mode="r", encoding="utf-8")
+    yield file
